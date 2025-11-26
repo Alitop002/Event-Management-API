@@ -1,6 +1,6 @@
 from django.db import models
-from api.models import User
 from django.utils import timezone
+
 class Category(models.Model):
     name = models.CharField(max_length=102, unique=True)
 
@@ -9,7 +9,7 @@ class Category(models.Model):
     
     
 class Event(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="events")
+    user = models.ForeignKey('User', on_delete=models.CASCADE, related_name="events")
     title = models.CharField(max_length=200)
     description = models.TextField(blank=True, null=True)
     category = models.ForeignKey(Category, on_delete=models.SET_NULL, null=True, blank=True, related_name='events')

@@ -42,8 +42,8 @@ REST_FRAMEWORK = {
         )
 }
 SPECTACULAR_SETTINGS = {
-    'TITLE': 'Your Project API',
-    'DESCRIPTION': 'Your project description',
+    'TITLE': 'Event Management API',
+    'DESCRIPTION': 'Kabuljanov Alimardon',
     'VERSION': '1.0.0',
     'SERVE_INCLUDE_SCHEMA': False,
     # OTHER SETTINGS
@@ -156,7 +156,7 @@ EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587 
 EMAIL_USE_TLS = True  
 EMAIL_HOST_USER = 'alimardonkabuljanov2009@gmail.com'
-EMAIL_HOST_PASSWORD = 'ab194419871982' 
+EMAIL_HOST_PASSWORD = 'fgke rrkr upvb eclg' 
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 
 
