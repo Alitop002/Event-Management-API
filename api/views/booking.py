@@ -44,5 +44,4 @@ class OwnerTicketDeletePutApiView(APIView):
         except Ticket.DoesNotExist:
             return None
         
-    def get(self, request, pk):
-        ticket
+
