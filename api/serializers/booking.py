@@ -5,6 +5,7 @@ class TicketSerializer(serializers.ModelSerializer):
     class Meta:
         model = Ticket
         fields = ['id', 'name', 'price', 'quantity', 'event', 'created_at', 'updated_at']
+        read_only_fields = ['created_at', 'updated_at']
 
 
 class BookingSerializer(serializers.ModelSerializer):

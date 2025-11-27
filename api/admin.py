@@ -5,7 +5,7 @@ from .models import User, Event, Ticket, Booking, Category
 
 @admin.register(User)
 class UserAdmin(BaseUserAdmin):
-    # Можно настроить отображаемые поля
+    readonly_fields = ('last_login', 'date_joined')
     fieldsets = (
         (None, {'fields': ('username', 'email', 'password')}),
         ('Personal info', {'fields': ('phone', 'address', 'image')}),
@@ -25,6 +25,7 @@ class CategoryAdmin(admin.ModelAdmin):
 
 @admin.register(Event)
 class EventAdmin(admin.ModelAdmin):
+    readonly_fields = ('created_at', 'update_at')
     list_display = ('title', 'user', 'category', 'start_time', 'end_time', 'created_at')
     search_fields = ('title', 'user__username', 'category__name')
     list_filter = ('category', 'start_time', 'end_time')

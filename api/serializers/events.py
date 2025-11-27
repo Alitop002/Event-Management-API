@@ -7,17 +7,6 @@ class CategorySerializer(serializers.ModelSerializer):
         fields = ['id', 'name']
 
 class EventSerializer(serializers.ModelSerializer):
-    start_time = serializers.DateTimeField(
-        format="%Y-%m-%dT%H:%M",
-        input_formats=["%Y-%m-%dT%H:%M"],
-        required=True
-    )
-    end_time = serializers.DateTimeField(
-        format="%Y-%m-%dT%H:%M",
-        input_formats=["%Y-%m-%dT%H:%M"],
-        required=True
-    )
-
     class Meta:
         model = Event
         fields = [
@@ -25,3 +14,4 @@ class EventSerializer(serializers.ModelSerializer):
             'start_time', 'end_time',
             'created_at', 'update_at'
         ]
+        read_only_fields = ['created_at', 'update_at']
