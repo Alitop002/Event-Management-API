@@ -28,6 +28,19 @@ class EventListCreateApiView(APIView):
             data = serializer.data
         )
     
+    def post(self, request):
+        if request.user.status != DONE:
+            return CustmResponse.error("Only verified users can create events")
+        
+        serializer = self.serializer_class(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        serializer.save(user=request.user)
+        return CustmResponse.success(
+            status=True,
+            message="Event created successfully",
+            data=serializer.data
+        )
+    
 
     
 @extend_schema(tags=['Event'])

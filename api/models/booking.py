@@ -18,12 +18,10 @@ class Ticket(models.Model):
         if not self.event.is_active():
             return None, "Events Ended"
         
-        if self.quantity <=0:
-            return None, "Tickets are out"
-        
-        if self.quantity < amount:
+        if not self.is_available(amount):
+            if self.quantity ==0:
+                return None, "Tickets sold out"
             return None, f"Only {self.quantity} tickets available"
-
         self.quantity -= amount
         self.save()
 
